@@ -1,0 +1,615 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   CSS Custom Properties — Design System
+───────────────────────────────────────── */
+:root {
+  --color-primary: #BC3D3D;
+  --color-primary-dark: #9a2f2f;
+  --color-primary-light: rgba(188, 61, 61, 0.08);
+  --color-bg: #ffffff;
+  --color-bg-subtle: #fafaf9;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #888888;
+  --color-border: #e5e5e5;
+  --color-border-subtle: #f0f0f0;
+
+  --font-serif: var(--font-noto-serif), "Noto Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --container-max: 1200px;
+  --container-padding: 80px;
+  --section-gap: 140px;
+
+  --transition: 220ms ease-in-out;
+  --transition-slow: 400ms ease-in-out;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 1199px) {
+  :root { --container-padding: 48px; }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --container-padding: 24px;
+    --section-gap: 80px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Base Reset & Global Styles
+───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─────────────────────────────────────────
+   Typography Base
+───────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(38px, 4.5vw, 54px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.78;
+  color: var(--color-text);
+  margin: 0;
+}
+
+strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ─────────────────────────────────────────
+   Container
+───────────────────────────────────────── */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* ─────────────────────────────────────────
+   Buttons
+───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  padding: 16px 36px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(188, 61, 61, 0.28);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary.full-width {
+  width: 100%;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────
+   Form Inputs
+───────────────────────────────────────── */
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #ababab;
+  font-style: italic;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(188, 61, 61, 0.09);
+}
+
+.form-input.input-error,
+.form-textarea.input-error {
+  border-color: var(--color-primary);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 108px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.form-error-msg {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-primary);
+  margin-top: 6px;
+}
+
+/* ─────────────────────────────────────────
+   Custom Radio Buttons
+───────────────────────────────────────── */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: all var(--transition);
+  background: #fff;
+}
+
+.radio-option:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.radio-option.radio-selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #c8c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background-color var(--transition);
+  background: #fff;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-custom {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.radio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color var(--transition);
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-custom .radio-dot {
+  background: #fff;
+}
+
+.radio-option:hover .radio-custom {
+  border-color: var(--color-primary);
+}
+
+.radio-label-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────
+   Editorial Accent — left red border
+───────────────────────────────────────── */
+.accent-left {
+  border-left: 2px solid var(--color-primary);
+  padding-left: 28px;
+}
+
+/* ─────────────────────────────────────────
+   Section divider — red hairline
+───────────────────────────────────────── */
+.section-rule {
+  width: 36px;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin-bottom: 40px;
+}
+
+/* ─────────────────────────────────────────
+   Microcopy
+───────────────────────────────────────── */
+.microcopy {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────
+   Tag / Badge
+───────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* ─────────────────────────────────────────
+   Card
+───────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────
+   Progress Bar (form multi-step)
+───────────────────────────────────────── */
+.progress-track {
+  width: 100%;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 100px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────
+   Responsive layout helpers
+───────────────────────────────────────── */
+
+/* Hero split grid */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+/* Quem faz split grid */
+.quemfaz-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: start;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3-col grid */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* 2-col grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Photo grid for gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.photo-grid-featured {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+}
+
+.photo-grid-featured .featured {
+  grid-row: 1 / 3;
+}
+
+@media (max-width: 767px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid .hero-image {
+    order: -1;
+    aspect-ratio: 3/2;
+  }
+
+  .quemfaz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .photo-grid-featured {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .photo-grid-featured .featured {
+    grid-row: 1;
+    grid-column: 1 / 3;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Carousel / Scroll strip
+───────────────────────────────────────── */
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* ─────────────────────────────────────────
+   Subtle section bg
+───────────────────────────────────────── */
+.section-alt {
+  background: var(--color-bg-subtle);
+}
+
+/* ─────────────────────────────────────────
+   Stat / number callout
+───────────────────────────────────────── */
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* ─────────────────────────────────────────
+   Step number
+───────────────────────────────────────── */
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+/* ─────────────────────────────────────────
+   Divider
+───────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   Navbar — hide links on mobile, show hamburger
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-hamburger {
+    display: flex !important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   SectionQuemFaz editorial split
+───────────────────────────────────────── */
+.quemfaz-editorial {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 767px) {
+  .quemfaz-editorial {
+    grid-template-columns: 1fr !important;
+  }
+}

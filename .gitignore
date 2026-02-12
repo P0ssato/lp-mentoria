@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# fotos originais WhatsApp (já copiadas para public/fotos/)
+/fotos-viviane/
+
+# memória local do agente
+/.claude/
