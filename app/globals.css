@@ -631,3 +631,196 @@ strong {
     gap: 12px;
   }
 }
+
+/* ─────────────────────────────────────────
+   Hero — grid editorial
+───────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 48%;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.hero-image {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero-image {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Grid helpers — responsivos
+───────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .grid-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Mobile — ajustes gerais de seções
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Tipografia mobile */
+  h1 {
+    font-size: clamp(30px, 8vw, 44px);
+    letter-spacing: -0.015em;
+  }
+
+  h2 {
+    font-size: clamp(24px, 6.5vw, 34px);
+  }
+
+  h3 {
+    font-size: clamp(17px, 4.5vw, 20px);
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  /* Botão full-width em mobile */
+  .btn-primary {
+    padding: 15px 28px;
+    font-size: 15px;
+  }
+
+  /* Formulário: barra de progresso labels menores */
+  .progress-label {
+    font-size: 10px !important;
+  }
+
+  /* Formulário: steps container */
+  .form-step-labels {
+    gap: 4px !important;
+  }
+
+  /* SectionQuemFaz: foto overlay pequena não sai da tela */
+  .quemfaz-editorial > div:first-child > div {
+    overflow: visible;
+  }
+
+  /* CTA Final: texto menor */
+  .cta-final-title {
+    font-size: clamp(26px, 7vw, 40px);
+  }
+
+  /* Hero badge — não sair da tela */
+  .hero-badge {
+    left: 8px !important;
+    bottom: 16px !important;
+  }
+
+  /* Footer: empilhar nav links e social */
+  .footer-top > div:last-child {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Tablet (768–1023px) — ajustes finos
+───────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --container-padding: 40px;
+    --section-gap: 100px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 46%;
+    gap: 48px;
+  }
+
+  .quemfaz-editorial {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Touch — melhorar tap targets
+───────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary,
+  .btn-ghost {
+    min-height: 48px;
+  }
+
+  .radio-option {
+    padding: 14px 16px;
+  }
+
+  /* Remover hover states em touch devices */
+  .btn-primary:hover:not(:disabled) {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Safe area — suporte a iPhones com notch
+───────────────────────────────────────── */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(var(--container-padding), env(safe-area-inset-left));
+    padding-right: max(var(--container-padding), env(safe-area-inset-right));
+  }
+
+  footer {
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ─────────────────────────────────────────
+   Reduce motion — respeitar preferência
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

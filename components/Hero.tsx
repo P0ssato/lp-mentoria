@@ -339,10 +339,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.55 }}
+            className="hero-badge"
             style={{
               position: "absolute",
               bottom: "28px",
-              left: "-24px",
+              left: "clamp(8px, -24px + 5vw, -24px)",
               zIndex: 2,
               background: "#fff",
               border: "1px solid var(--color-border)",
