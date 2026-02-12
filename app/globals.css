@@ -412,7 +412,7 @@ strong {
 /* Hero split grid */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: 1fr 48%;
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
@@ -460,16 +460,21 @@ strong {
   grid-row: 1 / 3;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .hero-grid .hero-image {
     order: -1;
-    aspect-ratio: 3/2;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
   }
+}
 
+@media (max-width: 767px) {
   .quemfaz-grid {
     grid-template-columns: 1fr;
   }
@@ -632,32 +637,7 @@ strong {
   }
 }
 
-/* ─────────────────────────────────────────
-   Hero — grid editorial
-───────────────────────────────────────── */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 48%;
-  gap: clamp(40px, 6vw, 96px);
-  align-items: center;
-}
-
-.hero-image {
-  max-width: 100%;
-}
-
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .hero-image {
-    max-width: 480px;
-    margin: 0 auto;
-    width: 100%;
-  }
-}
+/* Hero — grid editorial (ver bloco "Responsive layout helpers" acima) */
 
 /* ─────────────────────────────────────────
    Grid helpers — responsivos
@@ -757,7 +737,7 @@ strong {
 /* ─────────────────────────────────────────
    Tablet (768–1023px) — ajustes finos
 ───────────────────────────────────────── */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 901px) and (max-width: 1023px) {
   :root {
     --container-padding: 40px;
     --section-gap: 100px;
