@@ -8,6 +8,18 @@ import FadeInSection from "./FadeInSection";
    Timeline numerada com linha conectora
 ───────────────────────────────────────── */
 
+/* SVG decorativo: linhas de caderno */
+function PenLines({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={style} aria-hidden="true">
+      <line x1="0" y1="20" x2="200" y2="20" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.10" />
+      <line x1="0" y1="40" x2="200" y2="40" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.07" />
+      <line x1="0" y1="60" x2="200" y2="60" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.10" />
+      <line x1="0" y1="80" x2="200" y2="80" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.07" />
+    </svg>
+  );
+}
+
 const steps = [
   {
     n: "01",
@@ -36,8 +48,41 @@ export default function SectionComoFunciona() {
         paddingBottom: "var(--section-gap)",
         borderTop: "1px solid var(--color-border)",
         borderBottom: "1px solid var(--color-border)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Decoração: linhas de caderno no canto direito */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "60px",
+          right: "0px",
+          width: "200px",
+          height: "100px",
+          pointerEvents: "none",
+        }}
+      >
+        <PenLines style={{ width: "100%", height: "100%" }} />
+      </div>
+
+      {/* Decoração: linhas de caderno no canto esquerdo inferior */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "60px",
+          left: "0px",
+          width: "160px",
+          height: "80px",
+          pointerEvents: "none",
+          opacity: 0.7,
+        }}
+      >
+        <PenLines style={{ width: "100%", height: "100%" }} />
+      </div>
+
       <div className="container">
         <div style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto" }}>
           <FadeInSection>

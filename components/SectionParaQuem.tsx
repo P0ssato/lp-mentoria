@@ -8,6 +8,40 @@ import FadeInSection from "./FadeInSection";
    Checklist com ícone + texto
 ───────────────────────────────────────── */
 
+/* SVG decorativo: assinatura cursiva */
+function SignatureDeco({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={style} aria-hidden="true">
+      <path
+        d="M10 40 C 35 12, 60 48, 90 30 C 115 14, 128 45, 165 25 C 185 12, 205 35, 215 28"
+        stroke="#BC3D3D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeOpacity="0.18"
+        fill="none"
+      />
+      <path
+        d="M8 50 C 25 47, 55 52, 80 49"
+        stroke="#BC3D3D"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeOpacity="0.10"
+        fill="none"
+      />
+      {/* pequena seta */}
+      <path
+        d="M195 22 L210 28 L200 38"
+        stroke="#BC3D3D"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeOpacity="0.22"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 const checks = [
   {
     label: "Você tem experiência real.",
@@ -31,8 +65,24 @@ export default function SectionParaQuem() {
         paddingTop: "var(--section-gap)",
         paddingBottom: "var(--section-gap)",
         borderTop: "1px solid var(--color-border)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Decoração: assinatura cursiva no canto superior direito */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "48px",
+          right: "clamp(24px, 5vw, 80px)",
+          width: "220px",
+          pointerEvents: "none",
+        }}
+      >
+        <SignatureDeco style={{ width: "100%", height: "60px" }} />
+      </div>
+
       <div className="container">
         <div
           style={{

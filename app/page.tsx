@@ -2,43 +2,45 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SectionProblema from "@/components/SectionProblema";
 import SectionComoFunciona from "@/components/SectionComoFunciona";
+import FormDiagnostico from "@/components/FormDiagnostico";
 import SectionParaQuem from "@/components/SectionParaQuem";
 import SectionQuemFaz from "@/components/SectionQuemFaz";
 import SectionProximoPasso from "@/components/SectionProximoPasso";
-import FormDiagnostico from "@/components/FormDiagnostico";
+import SectionCTAFinal from "@/components/SectionCTAFinal";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
+        {/* 1. Hero */}
         <Hero />
+
+        {/* 2. Problema */}
         <SectionProblema />
+
+        {/* 3. O processo da mentoria */}
         <SectionComoFunciona />
-        <SectionParaQuem />
-        <SectionQuemFaz />
-        <SectionProximoPasso />
+
+        {/* 4. Diagnóstico — logo após o processo */}
         <FormDiagnostico />
 
-        <footer
-          style={{
-            borderTop: "1px solid var(--color-border)",
-            paddingTop: "40px",
-            paddingBottom: "40px",
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "13px",
-              color: "var(--color-text-secondary)",
-            }}
-          >
-            © {new Date().getFullYear()} Viviane · Mentoria de Livro
-          </p>
-        </footer>
+        {/* 5. Para quem */}
+        <SectionParaQuem />
+
+        {/* 6. Quem faz — Viviane */}
+        <SectionQuemFaz />
+
+        {/* 7. Próximo passo */}
+        <SectionProximoPasso />
+
+        {/* 8. CTA Final — editorial full-bleed */}
+        <SectionCTAFinal />
       </main>
+
+      {/* Footer completo */}
+      <Footer />
     </>
   );
 }

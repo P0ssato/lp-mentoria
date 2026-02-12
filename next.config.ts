@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    // Qualidade padrão para todas as imagens (pode ser sobrescrito por prop)
+    qualities: [75, 85, 90, 95],
+  },
 };
 
 export default nextConfig;

@@ -3,6 +3,18 @@
 import Image from "next/image";
 import FadeInSection from "./FadeInSection";
 
+/* SVG decorativo: linhas de caderno */
+function QuemFazLines({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 180 90" fill="none" xmlns="http://www.w3.org/2000/svg" style={style} aria-hidden="true">
+      <line x1="0" y1="18" x2="180" y2="18" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.09" />
+      <line x1="0" y1="36" x2="180" y2="36" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.06" />
+      <line x1="0" y1="54" x2="180" y2="54" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.09" />
+      <line x1="0" y1="72" x2="180" y2="72" stroke="#BC3D3D" strokeWidth="1" strokeOpacity="0.06" />
+    </svg>
+  );
+}
+
 export default function SectionQuemFaz() {
   return (
     <section
@@ -11,8 +23,25 @@ export default function SectionQuemFaz() {
         paddingTop: "var(--section-gap)",
         paddingBottom: "var(--section-gap)",
         borderTop: "1px solid var(--color-border)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Decoração: linhas de caderno no fundo direito */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "80px",
+          right: "0",
+          width: "180px",
+          height: "90px",
+          pointerEvents: "none",
+          opacity: 0.8,
+        }}
+      >
+        <QuemFazLines style={{ width: "100%", height: "100%" }} />
+      </div>
       <div className="container">
         <div
           style={{
