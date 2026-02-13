@@ -95,6 +95,7 @@ export default function SectionPreco() {
               <div style={{ display: "flex", flexDirection: "column", gap: "14px", marginBottom: "32px" }}>
                 {[
                   "12 meses de mentoria individual",
+                  "12 sessões de acompanhamento",
                   "Reuniões frequentes ao longo do processo",
                   "Acompanhamento capítulo a capítulo",
                   "Estrutura e método editorial personalizado",

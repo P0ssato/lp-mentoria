@@ -178,7 +178,7 @@ export default function Footer() {
                   marginBottom: "20px",
                 }}
               >
-                "Do primeiro rascunho até o livro publicado — com método, acompanhamento e prazo real."
+                "Do primeiro rascunho até o livro escrito — com método, acompanhamento e prazo real."
               </p>
 
               <FooterSignature />
