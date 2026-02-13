@@ -17,7 +17,7 @@ const items = [
   {
     icon: "✦",
     heading: "O que trava é a organização.",
-    body: "Você começa, escreve algumas páginas, para porque não sabe se está bom. Reescreve. Duvida. Para de novo. E o livro fica lá, sempre \"quase começando\".",
+    body: "Você começa, escreve algumas páginas e para porque não sabe se está bom. Reescreve. Duvida. Para de novo. E o livro fica lá, sempre \"quase começando\".",
   },
   {
     icon: "✦",

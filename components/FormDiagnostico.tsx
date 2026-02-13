@@ -470,7 +470,7 @@ export default function FormDiagnostico() {
 
                         <div>
                           <label className="form-label">
-                            O investimento da mentoria é R$10.000 (até 10x no cartão). Isso cabe para você agora?
+                            O investimento da mentoria é R$9.997 (até 10x no cartão). Isso cabe para você agora?
                           </label>
                           <Controller
                             name="investimento"

@@ -3,11 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-/* ─────────────────────────────────────────
-   Hero Section
-   Layout editorial: texto à esquerda, foto à direita
-   com elementos gráficos de escrita sobrepostos.
-───────────────────────────────────────── */
+const CHECKOUT_URL =
+  "https://hotmart.com/pt-br/marketplace/produtos/hagsxd-mentoria-de-escrita-j9p7t/C99160623K";
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
@@ -20,7 +17,6 @@ const fade = (delay: number, x = -20) => ({
   },
 });
 
-/* SVG decorativo: linhas de caderno manuscritas */
 function PenSvg({ style }: { style?: React.CSSProperties }) {
   return (
     <svg
@@ -39,7 +35,6 @@ function PenSvg({ style }: { style?: React.CSSProperties }) {
   );
 }
 
-/* SVG decorativo: assinatura cursiva estilizada */
 function SignatureSvg({ style }: { style?: React.CSSProperties }) {
   return (
     <svg
@@ -69,43 +64,7 @@ function SignatureSvg({ style }: { style?: React.CSSProperties }) {
   );
 }
 
-/* SVG decorativo: seta manuscrita */
-function ArrowSvg({ style }: { style?: React.CSSProperties }) {
-  return (
-    <svg
-      viewBox="0 0 60 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={style}
-      aria-hidden="true"
-    >
-      <path
-        d="M5 20 C 15 8, 30 6, 50 18"
-        stroke="#BC3D3D"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeOpacity="0.4"
-        fill="none"
-      />
-      <path
-        d="M42 12 L50 18 L43 26"
-        stroke="#BC3D3D"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeOpacity="0.4"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
-export default function Hero() {
-  const scrollToForm = () => {
-    const el = document.getElementById("diagnostico");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
+export default function HeroCheckout() {
   return (
     <header
       style={{
@@ -115,7 +74,7 @@ export default function Hero() {
         position: "relative",
       }}
     >
-      {/* ── Fundo texturado: linhas de papel ── */}
+      {/* Fundo texturado */}
       <div
         aria-hidden="true"
         style={{
@@ -129,10 +88,10 @@ export default function Hero() {
 
       <div className="container hero-grid" style={{ position: "relative" }}>
 
-        {/* ── Esquerda: Texto ── */}
+        {/* Esquerda: Texto */}
         <div style={{ display: "flex", flexDirection: "column", position: "relative" }}>
 
-          {/* Eyebrow tag */}
+          {/* Eyebrow */}
           <motion.div
             variants={fade(0)}
             initial="hidden"
@@ -163,7 +122,7 @@ export default function Hero() {
             Escreva seu livro em até 12 meses.
           </motion.h1>
 
-          {/* Assinatura decorativa abaixo do H1 */}
+          {/* Assinatura decorativa */}
           <motion.div
             variants={fade(0.14)}
             initial="hidden"
@@ -198,20 +157,15 @@ export default function Hero() {
             animate="visible"
             style={{ display: "flex", flexDirection: "column", gap: "14px", alignItems: "flex-start" }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
-              <button className="btn-primary" onClick={scrollToForm}>
-                Fazer diagnóstico gratuito
-              </button>
-              {/* Seta manuscrita apontando pro botão */}
-              <ArrowSvg
-                style={{
-                  width: "52px",
-                  height: "32px",
-                  transform: "scaleX(-1) rotate(-10deg)",
-                  marginTop: "4px",
-                }}
-              />
-            </div>
+            <a
+              href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ textDecoration: "none" }}
+            >
+              Garantir minha vaga
+            </a>
             <span className="microcopy" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span
                 style={{
@@ -224,11 +178,11 @@ export default function Hero() {
                   flexShrink: 0,
                 }}
               />
-              3 minutos · depois você agenda uma conversa comigo
+              R$9.997 · até 10x no cartão
             </span>
           </motion.div>
 
-          {/* Credencial discreta */}
+          {/* Credencial */}
           <motion.div
             variants={fade(0.36)}
             initial="hidden"
@@ -275,7 +229,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── Direita: Foto com decorações ── */}
+        {/* Direita: Foto */}
         <motion.div
           className="hero-image"
           initial={{ opacity: 0, x: 32 }}
@@ -283,7 +237,7 @@ export default function Hero() {
           transition={{ duration: 0.85, ease: EASE, delay: 0.12 }}
           style={{ position: "relative" }}
         >
-          {/* Linhas de papel decorativas atrás da foto */}
+          {/* Linhas decorativas */}
           <div
             aria-hidden="true"
             style={{
@@ -299,7 +253,7 @@ export default function Hero() {
             <PenSvg style={{ width: "100%", height: "100%" }} />
           </div>
 
-          {/* Moldura principal da foto */}
+          {/* Foto */}
           <div
             style={{
               position: "relative",
@@ -319,8 +273,6 @@ export default function Hero() {
               style={{ objectFit: "cover", objectPosition: "center top" }}
               sizes="(max-width: 767px) 100vw, 52vw"
             />
-
-            {/* Overlay sutil no rodapé da foto */}
             <div
               aria-hidden="true"
               style={{
@@ -334,7 +286,7 @@ export default function Hero() {
             />
           </div>
 
-          {/* Badge flutuante — credencial */}
+          {/* Badge flutuante */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -386,12 +338,12 @@ export default function Hero() {
                   lineHeight: 1,
                 }}
               >
-                Da ideia à publicação
+                Da primeira linha ao capítulo final
               </p>
             </div>
           </motion.div>
 
-          {/* Tag de prazo — canto superior */}
+          {/* Tag de prazo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

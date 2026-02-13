@@ -24,12 +24,12 @@ const steps = [
   {
     n: "01",
     title: "Você não vai escrever sozinho.",
-    body: "A gente trabalha junto, capítulo a capítulo. Reuniões semanais onde eu te ajudo a organizar as ideias, estruturar o texto, resolver o que travou. Você sempre sabe o próximo passo.",
+    body: "A gente trabalha junto, capítulo a capítulo. Reuniões frequentes em que eu te ajudo a organizar as ideias, estruturar o texto, resolver o que travou. Você sempre sabe o próximo passo.",
   },
   {
     n: "02",
     title: "Tem prazo definido.",
-    body: '12 meses para sair do zero até o livro publicado. Não é "um dia você termina" — é cronograma real de trabalho.',
+    body: '12 meses para sair do zero até o livro pronto. Não é "um dia você termina" — é cronograma real de trabalho.',
   },
   {
     n: "03",

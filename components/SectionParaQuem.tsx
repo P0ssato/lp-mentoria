@@ -45,7 +45,7 @@ function SignatureDeco({ style }: { style?: React.CSSProperties }) {
 const checks = [
   {
     label: "Você tem experiência real.",
-    body: "Pode ser gestão, empreendedorismo, metodologia própria, trajetória profissional relevante. Não precisa ser expert mundial, mas precisa ter algo útil para compartilhar.",
+    body: "Pode ser gestão, empreendedorismo, metodologia própria, trajetória profissional relevante, uma história pessoal forte. Não precisa ser expert mundial, mas precisa ter algo útil para compartilhar.",
   },
   {
     label: "Você está disposto a trabalhar de forma consistente.",
